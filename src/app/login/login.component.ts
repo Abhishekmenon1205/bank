@@ -11,9 +11,9 @@ export class LoginComponent {
   
   inputplaceholder="Account Number"
 
-  acno=''
+   acno=''
   // acno:any
-psw=''
+ psw=''
   userDetails:any={
     1000:{acno:1000,username:"anu",password:"abc123",balance:0},
     1001:{acno:1001,username:"amal",password:"abc123",balance:0},
@@ -27,20 +27,61 @@ psw=''
 
   ngOnInit(): void {
   }
-login(){
-  alert('login clicked')
-}
-acnoChange(event:any){
-  this.acno=event.target.value
-  console.log(this.acno);
+// login(){
+//   // alert('login clicked')
+//   var acnum=this.acno
+//   var psw=this.psw
+//   var userDetails=this.userDetails
+//   if (acnum in userDetails) {
+//     if(psw==userDetails[acnum]["password"]){
+//       alert("login sucess")
+//     }
+//     else{
+//       alert("incorrect password")
+//     }
+    
+//   }
+//   else{
+//         alert("acno incorrect or not registered yet")
+//   }
+
+
+// }
+
+login(a:any,b:any){
+  
+
+  var acnum=a.value
+  var psw=b.value
+   var userDetails=this.userDetails
+  if (acnum in userDetails) {
+    if(psw==userDetails[acnum]["password"]){
+      alert("login sucess")
+    }
+    else{
+      alert("incorrect password")
+    }
+    
+  }
+  else{
+        alert("acno incorrect or not registered yet")
   }
 
-  pswrdChange(event:any){
-    this.psw=event.target.value
-    console.log(this.psw);
+
+ }
+
+
+// acnoChange(event:any){
+//   this.acno=event.target.value
+//   // console.log(this.acno);
+//   }
+
+//   pswrdChange(event:any){
+//     this.psw=event.target.value
+//     // console.log(this.psw);
     
 
-  }
+//   }
 }
 
 
