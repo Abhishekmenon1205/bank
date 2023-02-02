@@ -1,0 +1,33 @@
+
+<div class="container w-50  rounded border text-center p-5 mt-5" style="background-color: rgba(65, 62, 62, 0.603);">
+    <h1 class="text-white">Sign Up To Bank</h1>
+    <form action="">
+    <div class="p-3 mt-2">
+        <input  id="unamid" name="usern1" class="form-control" type="text" 
+        placeholder="Enter Username">
+    </div>
+
+    <div class="p-3 mt-2"  >
+        <input  id="acid" name="acnum1" class="form-control" type="text" 
+        placeholder="Enter Account Number">
+    </div>
+
+    <div class="p-3 mt-2"  >
+        <input  id="psw1" name="paswrd1" class="form-control" type="password" 
+        placeholder="Enter password">
+    </div>
+
+    <div class="p-3 mt-2">
+        <button type="button" (click)="register()" class="btn btn-dark">Register</button>
+    </div>
+
+    
+    <div class="text-center text-white">
+        <strong>Not Registered? </strong> 
+        <a style="text-decoration: none;color: rgb(0, 0, 0);" routerLink="register">
+            <strong>Register</strong>
+        </a>
+            
+    </div> 
+</form>
+</div>
