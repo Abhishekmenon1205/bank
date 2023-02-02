@@ -26,21 +26,15 @@ login(){
   // alert('login clicked')
   var acnum=this.acno
   var psw=this.psw
-  var userDetails=this.ds.userDetails
-  if (acnum in userDetails) {
-    if(psw==userDetails[acnum]["password"]){
-      alert("login sucess")
-      this.router.navigateByUrl('dashboard')
-    }
-    else{
-      alert("incorrect password")
-    }
-    
+  
+  const result=this.ds.login(acnum,psw)
+  if (result) {
+    alert('login sucess')
+    this.router.navigateByUrl('dashboard')
   }
   else{
-        alert("acno incorrect or not registered yet")
+    alert("incurrect acno or password")
   }
-
 
 }
 
