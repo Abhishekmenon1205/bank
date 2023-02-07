@@ -6,13 +6,14 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   currentUser:any
+  currentAcno:any
 
   constructor() { }
   userDetails:any={
-    1000:{acno:1000,username:"anu",password:"abc123",balance:0},
-    1001:{acno:1001,username:"amal",password:"abc123",balance:0},
-    1003:{acno:1003,username:"arun",password:"abc123",balance:0},
-    1004:{acno:1004,username:"aakil",password:"abc123",balance:0}
+    1000:{acno:1000,username:"anu",password:"abc123",balance:0,transaction:[]},
+    1001:{acno:1001,username:"amal",password:"abc123",balance:0,transaction:[]},
+    1003:{acno:1003,username:"arun",password:"abc123",balance:0,transaction:[]},
+    1004:{acno:1004,username:"aakil",password:"abc123",balance:0,transaction:[]}
 
 
   }
@@ -32,6 +33,9 @@ export class DataService {
   if (acno in userDetails) {
     if(psw==userDetails[acno]["password"]){
       this.currentUser=userDetails[acno]["username"]
+      
+
+      this.currentAcno=acno
       return true
     }
     else{
@@ -43,5 +47,70 @@ export class DataService {
     }
 
   }
+deposit(acnum:any,password:any,amount:any){
+   // convert string amount to number
+   var amnt=parseInt(amount)
+  let userDetails=this.userDetails
 
+  if (acnum in userDetails) {
+    if (password==userDetails[acnum]["password"]) {
+      
+      // update balance
+      userDetails[acnum]["balance"]+=amnt
+      
+      // console.log(userDetails);
+      
+      // transaction data store
+      userDetails[acnum]["transaction"].push({Type:"CREDIT",amount:amnt})
+      
+      // retun current balance 
+      return userDetails[acnum]["balance"]
+    
+    }
+    else{
+      return false
+    }
+  }  
+  else{
+    return false
+  }
+}
+
+
+
+withdraw(acnum:any,password:any,amount:any){
+  // convert string amount to number
+  var amnt=parseInt(amount)
+ let userDetails=this.userDetails
+
+ if (acnum in userDetails) {
+   if (password==userDetails[acnum]["password"]) {
+    if (amnt <= userDetails[acnum]["balance"]) {
+     // update balance
+     userDetails[acnum]["balance"]-=amnt
+     
+     userDetails[acnum]["transaction"].push({Type:"DEBIT",amount:amnt})
+     
+     // return current balance 
+     return userDetails[acnum]["balance"]
+   }
+   else{
+    alert("Insufficient Balance")
+     return false
+   }
+ }  
+ else{
+  alert("Incorrect password")
+   return false
+ }
+}
+else{
+  alert("Incorrect acnum")
+  return false
+}
+}
+ 
+getTransaction(acno:any){
+  return this.userDetails[acno]["transaction"]
+}
 }

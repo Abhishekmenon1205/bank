@@ -69,4 +69,8 @@ to store redentent datas and methods
 service file easily
         -ng g s service_name
 
-    
+    Angular Dierectives  - to manipulate DOM
+    --------------------
+
+    1.component Dierectives
+    2.structural Dierectives    *ngFor
