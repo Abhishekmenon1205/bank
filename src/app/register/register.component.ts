@@ -13,6 +13,9 @@ export class RegisterComponent implements OnInit {
 acno=''
 psw=''
 
+// create reactive form of register form
+
+
   constructor(private ds:DataService, private router:Router) { }
 
   ngOnInit(): void{

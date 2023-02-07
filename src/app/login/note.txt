@@ -74,3 +74,17 @@ service file easily
 
     1.component Dierectives
     2.structural Dierectives    *ngFor
+
+
+Validation In Angular
+--------------------
+
+form creation in Angular
+    1.template driven from
+    2.model driven form
+
+        2.1 reactive form -used to create model of form
+        reactive form contain -group,array,control
+
+            ReactiveFormsModule -module
+            -FormBuilder        -class used to create model form
