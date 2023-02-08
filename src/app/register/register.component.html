@@ -1,20 +1,31 @@
 
 <div class="container w-50  rounded border text-center p-5 mt-5" style="background-color: rgba(65, 62, 62, 0.603);">
     <h1 class="text-white">Sign Up To Bank</h1>
-    <form action=""(ngsubmit)="register()">
+    <form [formGroup]="registerForm" action=""(ngsubmit)="register()">
     <div class="p-3 mt-2">
-        <input [(ngModel)]="uname" id="unamid" name="usern1" class="form-control" type="text" 
+        <input formControlName="uname"  id="unamid" name="usern1" class="form-control" type="text" 
         placeholder="Enter Username">
     </div>
-
-    <div class="p-3 mt-2"  >
-        <input [(ngModel)]="acno"  id="acid" name="acnum1" class="form-control" type="text" 
-        placeholder="Enter Account Number">
+    <div *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched">
+        <p class="text-danger">Accept Only Charracters</p>
     </div>
 
     <div class="p-3 mt-2"  >
-        <input [(ngModel)]="psw" id="psw1" name="paswrd1" class="form-control" type="password" 
+        <input formControlName="acno" id="acid" name="acnum1" class="form-control" type="text" 
+        placeholder="Enter Account Number">
+    </div>
+    
+    <div *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched">
+        <p class="text-danger">Accept Only Numbers</p>
+    </div>
+
+    <div class="p-3 mt-2"  >
+        <input formControlName="psw" id="psw1" name="paswrd1" class="form-control" type="password" 
         placeholder="Enter password">
+    </div>
+
+    <div *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched">
+        <p class="text-danger">Accept Only Numbers and Charracters</p>
     </div>
 
     <div class="p-3 mt-2">
