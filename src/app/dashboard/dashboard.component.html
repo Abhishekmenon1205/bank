@@ -1,8 +1,16 @@
+<div class="text-end pt-3 pe-4">
+    <button class="btn btn-danger">Delete Account</button>
+    <button (click)="logout()" class="btn btn-warning">Logout</button>
+</div>
+
+
 <h1>Welcome {{user}}</h1>
 
 <div class="mt-3 p-2 w-25 container  text-center  border border-dark rounded-pill" style="background-color:rgba(33, 28, 15, 0.452)" >
     <a style=" color:white" routerLink="/transaction">View Transaction History</a>
 </div>
+
+
 
 <div class=" container row mb-5 p-5">
   <div class="text-center container col-lg-6 col-md-12">
