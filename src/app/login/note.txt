@@ -73,7 +73,8 @@ service file easily
     --------------------
 
     1.component Dierectives
-    2.structural Dierectives    *ngFor
+    2.structural Dierectives    *ngFor  *ngIf
+    3. attribute Dierectives [ngClass]
 
 
 Validation In Angular
@@ -98,3 +99,9 @@ localStorage.setItem()
 localStorage.removeItem()
 
 json- stringify parse
+
+
+parent child components communication
+-------------------------------------
+
+@input

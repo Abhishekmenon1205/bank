@@ -11,6 +11,7 @@ import { DataService } from '../services/data.service'
 export class DashboardComponent implements OnInit {
 
   user:any
+  acno:any
 
   // acno:any
   // psw:any
@@ -37,6 +38,11 @@ export class DashboardComponent implements OnInit {
 })
 
   ngOnInit(): void{
+
+    if (!localStorage.getItem('currentAcno')) {
+      alert('please login')
+      this.router.navigateByUrl("")
+    }
     
     
   }
@@ -85,4 +91,8 @@ logout(){
   localStorage.removeItem("currentAcno") 
   this.router.navigateByUrl("")
   }
+deleteParent(){
+  this.acno=JSON.parse(localStorage.getItem("currentAcno") ||"")
+}
+
 }
